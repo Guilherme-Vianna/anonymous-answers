@@ -25,13 +25,15 @@ app.post('/questions', async (req, res) => {
   return res.status(201).json(newQuestion)
 }); 
 
-// app.get('/questions', async (req, res) => { 
-//   let [result] = await connection.execute('SELECT * FROM Questions');  
-//   return res.status(200).json(result)
-// }); 
-
 app.get('/questions', async (req, res) => { 
   let [result] = await connection.execute('SELECT * FROM Questions ORDER BY RAND() LIMIT 1');  
+  return res.status(200).json(result)
+}); 
+
+app.post('/questions/create', async (req, res) => { 
+  const query = 'INSERT INTO Questions(question, alternative1, alternative2, alternative3, answer) VALUES (?,?,?,?,?)'; 
+  const body = req.body; 
+  let [result] = await connection.execute(query, [body.question, body.alt1, body.alt2, body.alt3, body.ans]) ;  
   return res.status(200).json(result)
 }); 
 

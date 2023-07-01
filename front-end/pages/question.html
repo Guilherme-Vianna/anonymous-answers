@@ -8,28 +8,24 @@
     </head>
     <body>
         
-    <h1 id="question">[ESCREVA A SUA PERGUNTA]</h1>
+    <h1>ESCREVA A SUA PERGUNTA</h1>
     <div>
-        <input></input>
+        <p>Pergunta</p>
+        <textarea id="question" style="resize: none; width: 10cm; height: 5cm;"></textarea>
     </div>
-    <div>         
+    <div>
+        Alternativa 1 <input id="alt1"></input>
+        Alternativa 2 <input id="alt2"></input>
+        Alternativa 3 <input id="alt3"></input>
         <div></div>
-        <input></input>
-
-        <div></div>
-        Alternativa 2
-        <div></div>
-        <input></input>
-    
-        <div></div>
-        Alternativa 3
-        <div></div>
-        <input></input>
-    
-        <div></div>
-        Alternativa 4
-        <div></div>
-        <input></input>
+        <p>Escreva abaixo a resposta da sua pergunta</p>        
+        <input id="ans" style="width: 10cm;"></input>
     </div>
+    <div>
+        <p>
+            <button id="subButton">Enviar Pergunta</button>
+        </p>
+    </div>
+    <script src="script/createQuestion.js"></script>
     </body>
 </html>

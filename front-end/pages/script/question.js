@@ -1,8 +1,8 @@
 const url = "http://localhost:3000/questions"
 const question = document.getElementById("question")
-const alt1 = document.getElementById("alt1").addEventListener("click", Lose)
-const alt2 = document.getElementById("alt2").addEventListener("click", Lose)
-const alt3= document.getElementById("alt3").addEventListener("click", Lose)
+const alt1 = document.getElementById("alt1").addEventListener("click", CreateQuestion)
+const alt2 = document.getElementById("alt2").addEventListener("click", CreateQuestion)
+const alt3= document.getElementById("alt3").addEventListener("click", CreateQuestion)
 const ans = document.getElementById("ans").addEventListener("click", Win)
 
 
@@ -22,7 +22,7 @@ async function getAllQuestions(){
 getAllQuestions(); 
 
 
-function Lose(){
+function CreateQuestion(){
   window.location.replace("http://localhost:5500/front-end/pages/lose.html"); 
 }
 
