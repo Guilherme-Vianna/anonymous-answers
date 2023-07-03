@@ -2,20 +2,17 @@ import { connection } from "./infra/sqlconnection.js";
 import express from 'express'; 
 import cors from 'cors'
 
-const corsOptions ={
-   origin:'*', 
-   credentials:false,            //access-control-allow-credentials:true
-   optionSuccessStatus:200,
-}
-
-
 const app = express(); 
 const port = 3000;
 
-app.use(cors(corsOptions))
 app.use(express.json());
-
-
+app.use((req, res, next) => {
+  console.log("Acessou o Middleware!");
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Acess-Control-Allow-Methods", "GET, PUT, POST, DELETE");
+  app.use(cors()); 
+  next(); 
+});
 app.post('/questions', async (req, res) => { 
   console.log(req.body);
   const [newQuestion] = await connection.execute(
