@@ -10,6 +10,6 @@
   },
   "scripts": {
     "dev": "nodemon src/app.js",
-    "build": "npm run clean && babel src --out-dir dist --copy-files"
+    "start" : "node src/app.js"
   }
 }
