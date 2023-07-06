@@ -1,5 +1,5 @@
-# Docs para a ação de implantação de aplicativos da Web do Azure: https://github.com/Azure/webapps-deploy
-# Mais ações do GitHub para o Azure: https://github.com/Azure/actions
+# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
+# More GitHub Actions for Azure: https://github.com/Azure/actions
 
 name: Build and deploy Node.js app to Azure Web App - anonquestions
 
@@ -19,10 +19,13 @@ jobs:
       - name: Set up Node.js version
         uses: actions/setup-node@v1
         with:
-          node-version: "18.x"
+          node-version: '18.x'
 
-      - name: npm install
-        run: npm ci
+      - name: npm install, build, and test
+        run: |
+          npm install
+          npm run build --if-present
+          npm run test --if-present
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
@@ -34,7 +37,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     environment:
-      name: "Production"
+      name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
@@ -43,11 +46,11 @@ jobs:
         with:
           name: node-app
 
-      - name: "Deploy to Azure Web App"
+      - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: "anonquestions"
-          slot-name: "Production"
+          app-name: 'anonquestions'
+          slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_455D60D0A0884E99A1C268A867649D46 }}
           package: .
