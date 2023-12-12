@@ -1,2 +1,5 @@
-# anonymous-answers
-Um aplicativo para estudo fullstack, consiste em colocar uma pergunta que vai ser respondida por outra pessoa. Esse aplicativo tem como foco apenas aplicar o basico dos dois mundos. Nao usei nenhum framwork no front-end e usei somente express no back-end.
+# anonymous-answers back end
+A fullstack study application, it consists of asking a question that will be answered by someone else.
+The goal in this project was to develop something functional with a minimum of libraries/frameworks.
+
+This project is an application of the knowledge obtained in the IFES programming course
